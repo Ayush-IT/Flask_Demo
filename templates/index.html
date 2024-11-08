@@ -1,86 +1,82 @@
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movie List</title>
-    <link rel="stylesheet" href="static/styles.css" /> -->
-<!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
-<!-- </head>
-  <body>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
     <header>
-      <h1>Movie List</h1>
-      <p>Welcome to the movie database! Add your favorite movies here.</p>
+        <h1>Movie List</h1>
+        <p>Welcome to the movie database! Add your favorite movies here.</p>
     </header>
 
-    <div class="container"> -->
-<!-- Form to add new movie -->
-<!-- <form id="movieForm">
-        <div class="form-group">
-          <label for="title">Movie Title:</label>
-          <input type="text" id="title" name="title" required />
-        </div>
-        <div class="form-group">
-          <label for="release_year">Release Year:</label>
-          <input type="text" id="release_year" name="release_year" required />
-        </div>
-        <button type="submit">Add Movie</button>
-      </form>
+    <div class="container">
+        <form id="movieForm">
+            <div class="form-group">
+                <label for="title">Movie Title:</label>
+                <input type="text" id="title" name="title" required>
+            </div>
+            <div class="form-group">
+                <label for="release_year">Release Year:</label>
+                <input type="text" id="release_year" name="release_year" required>
+            </div>
+            <button type="submit">Add Movie</button>
+        </form>
 
-      <h2>Movies</h2>
-      <div id="movieList" class="movie-list">
-        {% for movie in movies %}
-        <div class="movie-card">
-          <h3>{{ movie['title'] }}</h3>
-          <p>Release Year: {{ movie['release_year'] }}</p>
+        <h2>Movies</h2>
+        <div id="movieList" class="movie-list">
+            {% for movie in movies %}
+                <div class="movie-card">
+                    <h3>{{ movie['title'] }}</h3>
+                    <p>Release Year: {{ movie['release_year'] }}</p>
+                </div>
+            {% endfor %}
         </div>
-        {% endfor %}
-      </div>
     </div>
 
     <footer>
-      <p>&copy; 2024 Movie List Application</p>
+        <p>&copy; 2024 Movie List Application</p>
     </footer>
 
     <script>
-      $(document).ready(function () { -->
-<!-- // AJAX form submission -->
-<!-- $("#movieForm").on("submit", function (event) {
-          event.preventDefault();
-          let title = $("#title").val();
-          let releaseYear = $("#release_year").val();
+        $(document).ready(function() {
+            $('#movieForm').on('submit', function(event) {
+                event.preventDefault();
+                let title = $('#title').val();
+                let releaseYear = $('#release_year').val();
 
-          // Submit form data using AJAX
-          $.ajax({
-            url: "/add_movie",
-            type: "POST",
-            data: { title: title, release_year: releaseYear },
-            success: function (response) {
-              // If success, add the new movie card to the list
-              if (response.title && response.release_year) {
-                $("#movieList").append(
-                  `<div class="movie-card">
+                $.ajax({
+                    url: '/add_movie',
+                    type: 'POST',
+                    data: { title: title, release_year: releaseYear },
+                    success: function(response) {
+                        if (response.title && response.release_year) {
+                            $('#movieList').append(
+                                `<div class="movie-card">
                                     <h3>${response.title}</h3>
                                     <p>Release Year: ${response.release_year}</p>
                                 </div>`
-                );
-                // Clear form inputs
-                $("#movieForm")[0].reset();
-              } else {
-                alert("Error adding movie.");
-              }
-            },
-            error: function () {
-              alert("Error with the request.");
-            },
-          });
+                            );
+                            $('#movieForm')[0].reset();
+                        } else {
+                            alert("Error adding movie.");
+                        }
+                    },
+                    error: function() {
+                        alert("Error with the request.");
+                    }
+                });
+            });
         });
-      });
     </script>
-  </body>
-</html> -->
+</body>
+</html>
 
-<!-- <!DOCTYPE html>
+
+    <!-- <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -106,9 +102,9 @@
       <button type="submit">Add Movie</button>
     </form>
   </body>
-</html> -->
+</html>
 
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -120,13 +116,16 @@
     <h1>Movie List</h1>
 
     <!-- Movie List -->
-    <ul id="movie-list">
+    <!-- <ul id="movie-list">
       {% for movie in movies %}
       <li>{{ movie.title }} ({{ movie.year }})</li>
       {% endfor %}
     </ul>
 
     <!-- Link to Add a New Movie -->
-    <a href="{{ url_for('add_movie_page') }}">Add a New Movie</a>
+    <!-- <a href="{{ url_for('add_movie_page') }}">Add a New Movie</a>
   </body>
+</html> -->
+    --> -->
+  </head>
 </html>
