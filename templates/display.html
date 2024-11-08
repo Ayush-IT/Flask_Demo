@@ -8,14 +8,19 @@
       rel="stylesheet"
       href="{{ url_for('static', filename='styles.css') }}"
     />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
   </head>
   <body>
     <header>
       <h1>Movie List</h1>
-      <p>Here is a list of movies you've added:</p>
+      <p>Welcome to the movie database! View your added movies below.</p>
     </header>
 
     <div class="container">
+      <!-- Link to navigate to Add Movie page -->
+      <a href="{{ url_for('add_movie') }}">Add a New Movie</a>
+
       <h2>Movies</h2>
       <div id="movieList" class="movie-list">
         {% for movie in movies %}
@@ -25,7 +30,6 @@
         </div>
         {% endfor %}
       </div>
-      <a href="{{ url_for('add_movie_page') }}">Add a New Movie</a>
     </div>
 
     <footer>

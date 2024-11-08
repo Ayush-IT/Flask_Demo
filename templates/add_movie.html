@@ -1,36 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Add Movie</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styles.css') }}"
+    />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="{{ url_for('static', filename='script.js') }}"></script>
-</head>
-<body>
+  </head>
+  <body>
     <header>
-        <h1>Add a Movie</h1>
-        <p>Fill in the details of your favorite movie.</p>
+      <h1>Add a Movie</h1>
+      <p>Fill in the movie details below:</p>
     </header>
 
     <div class="container">
-        <form id="movieForm">
-            <div class="form-group">
-                <label for="title">Movie Title:</label>
-                <input type="text" id="title" name="title" required>
-            </div>
-            <div class="form-group">
-                <label for="release_year">Release Year:</label>
-                <input type="text" id="release_year" name="release_year" required>
-            </div>
-            <button type="submit">Add Movie</button>
-        </form>
-        <a href="{{ url_for('display_movies') }}">View Movie List</a>
+      <!-- Form to add a new movie -->
+      <form id="movieForm">
+        <div class="form-group">
+          <label for="title">Movie Title:</label>
+          <input type="text" id="title" name="title" required />
+        </div>
+        <div class="form-group">
+          <label for="release_year">Release Year:</label>
+          <input type="text" id="release_year" name="release_year" required />
+        </div>
+        <button type="submit">Add Movie</button>
+      </form>
     </div>
 
     <footer>
-        <p>&copy; 2024 Movie List Application</p>
+      <p>&copy; 2024 Movie List Application</p>
     </footer>
-</body>
+  </body>
 </html>
