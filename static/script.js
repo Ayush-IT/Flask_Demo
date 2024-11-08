@@ -1,41 +1,33 @@
-// document.addEventListener("DOMContentLoaded", function () {
-//     const form = document.getElementById("movieForm");
-//     form.onsubmit = async (event) => {
-//         event.preventDefault();
-
-//         const formData = new FormData(form);
-//         const response = await fetch('/add_movie', {
-//             method: 'POST',
-//             body: formData
-//         });
-
-//         if (response.ok) {
-//             const movie = await response.json();
-//             const movieList = document.getElementById("movieList");
-//             movieList.innerHTML += `<li>${movie.title} (${movie.release_year})</li>`;
-//             form.reset();
-//         }
-//     };
-// });
-
-
-$(document).ready(function () {
-    $('#movie-form').on('submit', function (event) {
+$(document).ready(function() {
+    // AJAX form submission
+    $('#movieForm').on('submit', function(event) {
         event.preventDefault();
+        let title = $('#title').val();
+        let releaseYear = $('#release_year').val();
 
+        // Submit form data using AJAX
         $.ajax({
-            type: 'POST',
             url: '/add_movie',
-            data: $(this).serialize(),
-            success: function (response) {
-                if (response.success) {
-                    alert('Movie added successfully!');
-                    window.location.href = '/';  // Redirect back to movie list page
+            type: 'POST',
+            data: { title: title, release_year: releaseYear },
+            success: function(response) {
+                // If success, add the new movie card to the list
+                if (response.title && response.release_year) {
+                    $('#movieList').append(
+                        `<div class="movie-card">
+                            <h3>${response.title}</h3>
+                            <p>Release Year: ${response.release_year}</p>
+                        </div>`
+                    );
+                    // Clear form inputs
+                    $('#movieForm')[0].reset();
                 } else {
-                    alert('Failed to add the movie. Please try again.');
+                    alert("Error adding movie.");
                 }
+            },
+            error: function() {
+                alert("Error with the request.");
             }
         });
     });
 });
-
