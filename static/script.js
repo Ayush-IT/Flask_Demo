@@ -17,3 +17,25 @@
 //         }
 //     };
 // });
+
+
+$(document).ready(function () {
+    $('#movie-form').on('submit', function (event) {
+        event.preventDefault();
+
+        $.ajax({
+            type: 'POST',
+            url: '/add_movie',
+            data: $(this).serialize(),
+            success: function (response) {
+                if (response.success) {
+                    alert('Movie added successfully!');
+                    window.location.href = '/';  // Redirect back to movie list page
+                } else {
+                    alert('Failed to add the movie. Please try again.');
+                }
+            }
+        });
+    });
+});
+
