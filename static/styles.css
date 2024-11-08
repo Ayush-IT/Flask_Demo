@@ -32,6 +32,7 @@ header p {
   text-align: center;
 }
 
+/* Form Styles */
 form {
   margin-bottom: 30px;
 }
@@ -40,7 +41,7 @@ form {
   margin: 15px 0;
 }
 
-input {
+input[type="text"] {
   width: 100%;
   padding: 10px;
   margin-top: 5px;
@@ -62,6 +63,20 @@ button {
 
 button:hover {
   background-color: #0056b3;
+}
+
+/* Link Styles */
+a {
+  display: inline-block;
+  margin-top: 20px;
+  color: #007bff;
+  text-decoration: none;
+  font-size: 1.1em;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #0056b3;
 }
 
 /* Movie Card Layout */
@@ -101,7 +116,6 @@ footer {
   padding: 20px;
   background-color: #3a3a3a;
   color: #fff;
-  /* position: fixed; */
   width: 100%;
-  bottom: 0;
+  margin-top: 40px;
 }

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movie List</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styles.css') }}"
+    />
+  </head>
+  <body>
+    <header>
+      <h1>Movie List</h1>
+      <p>Here is a list of movies you've added:</p>
+    </header>
+
+    <div class="container">
+      <h2>Movies</h2>
+      <div id="movieList" class="movie-list">
+        {% for movie in movies %}
+        <div class="movie-card">
+          <h3>{{ movie['title'] }}</h3>
+          <p>Release Year: {{ movie['release_year'] }}</p>
+        </div>
+        {% endfor %}
+      </div>
+      <a href="{{ url_for('add_movie_page') }}">Add a New Movie</a>
+    </div>
+
+    <footer>
+      <p>&copy; 2024 Movie List Application</p>
+    </footer>
+  </body>
+</html>
